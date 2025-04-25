@@ -46,7 +46,7 @@ User → AWS S3 (Static Website)
 ### Frontend (on AWS S3)
 1. Upload `index.html` to a new S3 bucket
 2. Enable static website hosting
-3. Make bucket objects public or use CloudFront (optional)
+3. Make bucket objects public
 
 ### Backend (on GCP Cloud Run)
 1. Deploy `main.py` using Cloud Run with `functions-framework`
