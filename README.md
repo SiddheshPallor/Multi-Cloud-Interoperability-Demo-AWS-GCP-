@@ -64,5 +64,5 @@ User → AWS S3 (Static Website)
 ---
 
 ## 📸 Screenshots
-Please refer to the Documentation file for supporting images related to IAM setup, bucket creation, and access testing.
+Please refer to the Documentation file for supporting images.
 
