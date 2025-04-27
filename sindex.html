@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Multi-Cloud Demo</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      padding: 50px;
+      background: #f4f4f4;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #output {
+      margin-top: 30px;
+      font-size: 18px;
+      color: #555;
+    }
+
+    footer {
+      margin-top: 50px;
+      font-size: 14px;
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+  <h1>Multi-Cloud Architecture Demo</h1>
+  <p>This site is hosted on <strong>AWS S3</strong>, and it talks to a backend API on <strong>Google Cloud Functions</strong>.</p>
+
+  <button onclick="callBackend()">Call GCP Backend</button>
+
+  <div id="output">Response will appear here...</div>
+
+  <footer>
+    Developed By Sidhesh Pallor
+  </footer>
+
+  <script>
+    function callBackend() {
+      const output = document.getElementById("output");
+      output.innerText = "Calling backend...";
+
+      
+      fetch("https://helloapi-73143739647.asia-south1.run.app")
+        .then(response => {
+          if (!response.ok) throw new Error("Network response was not ok");
+          return response.text();
+        })
+        .then(data => {
+          output.innerText = "Response from GCP: " + data;
+        })
+        .catch(error => {
+          output.innerText = "Error: " + error.message;
+        });
+    }
+  </script>
+</body>
+</html>
